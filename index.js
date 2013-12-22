@@ -2,9 +2,9 @@
 
 var request = require('request');
 var xml2js = require('xml2js');
-var inspect = require('eyes').inspector({maxLength: false})
+var inspect = require('eyes').inspector({maxLength: false});
 
-request.get('http://thegamesdb.net/api/GetGamesList.php?name=metal+gear', function (err, res) {
+request.get('http://thegamesdb.net/api/GetGamesList.php?name=Grand+theft+auto+v', function (err, res) {
   if (err) return console.error(err);
   console.dir(res.body);
 
