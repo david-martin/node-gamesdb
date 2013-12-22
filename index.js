@@ -2,14 +2,18 @@
 
 var request = require('request');
 var xml2js = require('xml2js');
-var inspect = require('eyes').inspector({maxLength: false});
 
-request.get('http://thegamesdb.net/api/GetGamesList.php?name=Grand+theft+auto+v', function (err, res) {
-  if (err) return console.error(err);
-  console.dir(res.body);
+exports.getGamesList = function(opts, cb) {
+  var query = encodeURIComponent(opts.query);
 
-  xml2js.parseString(res.body, function(err, json) {
-    if (err) return console.error(err);
-    inspect(json);
+  request.get('http://thegamesdb.net/api/GetGamesList.php?name=' + query, function (err, res) {
+    if (err) return cb(err);
+    //console.dir(res.body);
+
+    xml2js.parseString(res.body, function(err, json) {
+      if (err) return cb(err);
+      // inspect(json);
+      return cb(null, json);
+    });
   });
-});
+};
