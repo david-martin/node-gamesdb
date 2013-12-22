@@ -1,0 +1,17 @@
+{
+  "name": "node-gamerdb",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "irldavem@gmail.com",
+  "license": "BSD",
+  "dependencies": {
+    "request": "~2.30.0",
+    "xml2js": "~0.4.0",
+    "eyes": "~0.1.8"
+  }
+}
